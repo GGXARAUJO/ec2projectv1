@@ -4,11 +4,7 @@ on:
   pull_request:
     branches:
       - '**'
-
-  pull:
-    branches:
-      - '**'
-
+      
 jobs:
   gitleaks-scan:
     name: Run Gitleaks
