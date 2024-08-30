@@ -1,0 +1,34 @@
+name: Gitleaks
+
+on:
+  pull_request:
+    branches:
+      - '**'
+
+  pull:
+    branches:
+      - '**'
+
+jobs:
+  gitleaks-scan:
+    name: Run Gitleaks
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v3
+
+    - name: Run Gitleaks
+      uses: zricethezav/gitleaks-action@v1.4.0
+      with:
+        config: ''
+        report-format: 'json'
+        report-path: 'gitleaks-report.json'
+        verbose: true
+
+    - name: Upload Gitleaks Report
+      if: always()
+      uses: actions/upload-artifact@v3
+      with:
+        name: gitleaks-report
+        path: gitleaks-report.json

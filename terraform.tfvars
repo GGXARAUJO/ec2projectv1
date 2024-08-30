@@ -1,0 +1,5 @@
+cliente_nome   = ""
+regiao         = ""
+tipo_ambiente  = ""
+cliente_nome_inteiro = ""
+key_name      = ""
